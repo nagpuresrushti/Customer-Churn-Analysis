@@ -1,35 +1,73 @@
+---
 
-```markdown
 # 📊 Customer Churn Analysis & Prediction
 
-This project performs **end-to-end customer churn analysis**, including Exploratory Data Analysis (EDA), feature engineering, machine learning model building, and deployment using a **Flask web application**.
+This project focuses on **end-to-end customer churn analysis**, including **Exploratory Data Analysis (EDA)**, **machine learning model building**, and **deployment of the final model using a Flask web application**.
 
-The goal is to identify customers who are more likely to churn and provide a predictive system that can be accessed via a web UI.
-
----
-
-## 🔍 Problem Statement
-Customer churn is a critical challenge for subscription-based businesses. This project aims to:
-- Analyze customer behavior
-- Identify churn-driving factors
-- Build a robust churn prediction model
-- Deploy the model using a Flask API
+The goal is to identify customers who are more likely to churn and help businesses take proactive retention actions.
 
 ---
 
-## 🛠️ Tech Stack
-- **Programming Language:** Python
-- **Libraries:** Pandas, NumPy, Matplotlib, Seaborn
-- **Machine Learning:** Scikit-learn, Imbalanced-learn (SMOTEENN)
-- **Model:** Random Forest Classifier
-- **Deployment:** Flask
-- **Frontend:** HTML (Jinja Templates)
+## 🚀 Project Overview
+
+Customer churn is a major challenge for subscription-based businesses.
+In this project, we:
+
+* Performed **Exploratory Data Analysis (EDA)** to understand churn behavior
+* Identified key factors influencing customer churn
+* Built a **Machine Learning model** using **Random Forest Classifier**
+* Handled class imbalance using **SMOTEENN**
+* Deployed the trained model using a **Flask API**
+* Created a simple **frontend UI** to get churn predictions
 
 ---
 
-## 📁 Project Structure
+## 🧠 Machine Learning Workflow
+
+1. **Data Cleaning & Preprocessing**
+
+   * Handling missing values
+   * Encoding categorical variables using `pd.get_dummies`
+   * Feature engineering (tenure grouping, etc.)
+
+2. **Exploratory Data Analysis**
+
+   * Churn distribution analysis
+   * Feature-wise churn impact
+   * KDE plots, bar plots, and correlation analysis
+
+3. **Handling Imbalanced Data**
+
+   * Used **SMOTEENN** to balance churn and non-churn classes
+
+4. **Model Building**
+
+   * Random Forest Classifier
+   * Model evaluation using accuracy, confusion matrix, and ROC-AUC
+
+5. **Model Saving**
+
+   * Final trained model saved as `model.sav`
+
+---
+
+## 🛠️ Technologies Used
+
+* Python 3.10
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
+* Imbalanced-learn (SMOTEENN)
+* Flask
+* HTML (Frontend)
+
+---
+
+## 📂 Project Structure
+
 ```
-
 Customer Churn Analysis/
 │
 ├── Churn Analysis - EDA.ipynb
@@ -39,68 +77,25 @@ Customer Churn Analysis/
 ├── templates/
 │   └── home.html
 └── README.md
-
-````
-
----
-
-## 📊 Exploratory Data Analysis
-- Identified churn patterns based on:
-  - Contract type
-  - Monthly charges
-  - Internet service
-  - Tenure
-  - Payment method
-- Visualized distributions and correlations
-
-📌 **Notebook:** `Churn Analysis - EDA.ipynb`
-
----
-
-## 🤖 Model Building
-- Performed feature engineering using `pd.get_dummies`
-- Handled class imbalance using **SMOTEENN**
-- Trained multiple models and selected:
-  - ✅ **Random Forest Classifier**
-- Evaluated using:
-  - Confusion Matrix
-  - Accuracy, Precision, Recall
-
-📌 **Notebook:** `Churn Analysis - Model Building.ipynb`
-
----
-
-## 🚀 Model Deployment
-- Trained model saved as `model.sav`
-- Flask API created to serve predictions
-- User inputs collected from web UI
-- Prediction returned as churn / non-churn
-
-📌 **Backend:** `app.py`
-
----
-
-## ▶️ How to Run the Project
-
-### Step 1: Create & Activate Environment
-```bash
-conda create -n churn_env python=3.10
-conda activate churn_env
-````
-
-### Step 2: Install Dependencies
-
-```bash
-pip install -r requirements.txt
 ```
 
-### Step 3: Run Flask App
+---
 
-```bash
+## 🌐 Flask Application Details
+
+* **GET /**
+  Loads the home page (`home.html`)
+
+* **POST /**
+  Accepts customer details from the frontend and returns churn prediction
+
+Run the Flask app using:
+
+```
 python app.py
 ```
 
-### Step 4: Open Browser
+The app will be available at:
 
 ```
 http://127.0.0.1:5000/
@@ -108,47 +103,65 @@ http://127.0.0.1:5000/
 
 ---
 
-## 📌 Output
+## ▶️ How to Run the Project
 
-* User enters customer details
-* Model predicts whether the customer is **likely to churn or not**
+1. Create a virtual environment:
 
----
-
-## 📈 Future Enhancements
-
-* Deploy on cloud (Heroku / AWS)
-* Add probability-based churn score
-* Improve UI with Streamlit or React
-
-
----
-
-# 📦 requirements.txt (Create this file)
-
-Create a new file named **`requirements.txt`** in your project folder and paste this:
-
-```txt
-flask
-pandas
-numpy
-scikit-learn
-imbalanced-learn
-matplotlib
-seaborn
-````
-
-If you want **exact versions (recommended)**:
-
-```txt
-flask==2.3.3
-pandas==2.0.3
-numpy==1.24.4
-scikit-learn==1.3.2
-imbalanced-learn==0.11.0
-matplotlib==3.7.2
-seaborn==0.12.2
 ```
+conda create -n churn_env python=3.10
+conda activate churn_env
+```
+
+2. Install dependencies:
+
+```
+pip install flask pandas numpy scikit-learn imbalanced-learn matplotlib seaborn
+```
+
+3. Navigate to the project folder:
+
+```
+cd "S:\DataAnalystProjects\Customer Churn Analysis"
+```
+
+4. Run the Flask app:
+
+```
+python app.py
+```
+
+5. Open browser and visit:
+
+```
+http://127.0.0.1:5000/
+```
+
+---
+
+## 📈 Model Output
+
+The model predicts:
+
+* **Churn = Yes** → Customer is likely to leave
+* **Churn = No** → Customer is likely to stay
+
+---
+
+## 🎯 Key Learnings
+
+* Importance of EDA in understanding customer behavior
+* Handling imbalanced datasets using SMOTEENN
+* End-to-end ML pipeline from data analysis to deployment
+* Practical experience with Flask-based ML deployment
+
+---
+
+## 📌 Future Improvements
+
+* Add model explainability (SHAP / Feature Importance)
+* Improve frontend UI
+* Deploy on cloud (Heroku / Render / AWS)
+* Add logging and exception handling
 
 ---
 
